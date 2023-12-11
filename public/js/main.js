@@ -26,35 +26,25 @@ let img= document.querySelectorAll("img")
 // console.log(img)
 
 col.forEach(element => {
-    element.addEventListener("click", function (e) {
-        col= e.target
-        console.log(element)
-        Array.from(element).forEach(items => {
-            console.log(items)
-            // if (element.src=="back-img") {
-            //     element.style.display="none"
-            
-            // } 
-            // if(element.src == "") {
-            //     element.src = cards[Math.floor(Math.random()*cards.length)]
-            //     element.style.display="block"
-            // }
+    element.addEventListener("click", function () {
+        // console.log(element)
+        let images= element.children
+        // console.log(images)
+       Array.from(images).forEach( item=> {
+            if (item.classList.contains("backImg")) {
+                item.style.display="none"
+                
+            } 
+            if(item.classList.contains("frontImg")) {
+                item.src = cards[Math.floor(Math.random()*cards.length)]
+                item.style.display="block"
+                // console.log(item)
+            }
             
         });
        
-        // let img = element.childNodes
-        // console.log(img)
-        // for (let i = 0; i < img.length; i++) {
-        //     console.log(img[i].src)
-        //     // if (i==0) {
-        //     //     console.log(img[i])
-        //     // //    img[i].style.display= "none"
-        //     // }
-        //     // if (i==1) {
-        //     //     console.log(img[i])
-        //     //     // img[i].src=cards[Math.floor(Math.random()*cards.length)]
-        //     //     // img[i].style.display = "block"  
-        //     // }
-        // }
+            
+        
+
     })
 })
