@@ -1,3 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-size: cover;
+    height: 100vh;
+}
 .title{
     display: flex;
     flex-direction: column;
@@ -31,6 +39,6 @@
 }
 .col .frontImg {
     height: 400px;
-    width: 250px;
+    width: 300px;
     display: none;
 }
