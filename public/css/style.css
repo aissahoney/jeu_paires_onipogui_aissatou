@@ -1,0 +1,24 @@
+.jeu{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px
+}
+
+.row{
+    display: flex;
+   flex-direction: row;
+   gap: 20px;
+}
+.col{
+    border: 1px solid blue;
+    height: 400px;
+    width: 250px;
+    gap:20px;
+}
+.col .backImg{
+    height: 400px;
+    width: 250px;
+}
+
