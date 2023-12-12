@@ -12,11 +12,11 @@ body{
     align-items: center;
 }
 .jeu {
-    display: flex;
-    flex-direction: column;
+    display: none;
+    /* flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px
+    gap: 20px */
 }
 
 .row {
@@ -41,4 +41,12 @@ body{
     height: 400px;
     width: 300px;
     display: none;
+}
+
+.red{
+    opacity: 10;
+    /* background-color: red;
+    height: 400px;
+    width: 300px;
+    display: block; */
 }
