@@ -1,7 +1,11 @@
+let divBg=document.querySelector(".blackBg")
+// let divTitle=document.querySelector(".title")
+
 let h3= document.querySelector("h3")
 let div=document.querySelector(".jeu")
 h3.addEventListener("click", function () {
-    div.style.display="flex"
+    divBg.style.display="none";
+    div.style.display="flex";
     div.style.flexDirection= "column";
     div.style.justifyContent="center";
     div.style.alignItems= "center";
@@ -49,8 +53,11 @@ img.forEach(element => {
 // ---------verifier les paires-----------------
 let pairs = [];
 function verify(pairs) {
-    if (pairs[0]!= pairs[1]) {
-        return true;
+    if (pairs[0].src== pairs[1].src) {
+        pairs[0].style.opacity = "0.7"
+        pairs[1].style.opacity = "0.7"
+        pairs.slice(0,2)
+        // return true
     }
 }
 
@@ -59,7 +66,9 @@ function verify(pairs) {
 // img.className="red"
 
 let col = document.querySelectorAll(".col");
-// console.log(col)  
+// console.log(col) 
+
+
 col.forEach(element => {
     element.addEventListener("click", function () {
         // console.log(element)
@@ -68,28 +77,57 @@ col.forEach(element => {
         Array.from(images).forEach(item => {
             if (item.classList.contains("frontImg")) {
                 item.style.display = "block"
-                // console.log(cards)
-                pairs.push(item.src)
-                
-                if (pairs.length == 2) {
-                    console.log(pairs);
-                    if (verify(pairs) == true) {
-                        item.style.opacity = "0.5"
-                        console.log(item.previousElementSibling.previousElementSibling.previousElementSibling)
-                        console.log(item)
-                        console.log("tu as trouvé une pairs")
-                    }
-                }
-
-            }
+                pairs.push(item)
+                console.log(pairs);
+                verify(pairs)
+        }
             if (item.classList.contains("backImg")) {
                 item.style.display = "none"
 
             }
-         
-
         })
     })
 })
+// col.forEach(element => {
+//     element.addEventListener("click", function () {
+//         // console.log(element)
+//         let images = element.children
+        // console.log(images)
+// let arrayImages=Array.from(images)
+//         for (let l = 0; l < arrayImages.length; l++) {
+//            if (arrayImages[l].classList.contains("frontImg")) {
+//                arrayImages[l].style.display = "block"
+//                pairs.push(arrayImages[l])
+//            } else {
+            
+//            } arrayImages[l];
+            
+//         }
+        
+//         Array.from(images).forEach(item => {
+//             if (item.classList.contains("frontImg")) {
+//                 item.style.display = "block"
+//                 pairs.push(item.src)
+//                 // console.log(cards)
+//                       if (verify(pairs) == true) {
+//                         // item.style.opacity = "0.5"
+//                         // console.log(item.previousElementSibling)
+//                         // console.log(item)
+//                         element.style.opacity = "0"
+//                         console.log("tu as trouvé une pairs")
+//                     }
+                
+//                 // if (pairs.length == 2) {
+//                 //     console.log(pairs);
+              
+//                 // }
 
+//             }
+//             if (item.classList.contains("backImg")) {
+//                 item.style.display = "none"
+
+//             }
+//         })
+//     })
+// }) 
 
