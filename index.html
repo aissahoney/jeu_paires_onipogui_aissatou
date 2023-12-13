@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./public/css/style.css">
     <title>memory</title>
 </head>
+
 <body>
     <div class="blackBg">
-    <div class="title">
-        <h1>UMBRELLA&nbsp&nbspACADEMY</h1>
-        <h3>CLICK HERE TO BEGIN</h3>
+        <div class="title">
+            <h1>UMBRELLA&nbsp&nbspACADEMY</h1>
+            <input type="text" value="">
+            <h3>CLICK HERE TO BEGIN</h3>
+        </div>
     </div>
-</div>
+    <div class="score">
+        <h1> pseudo:</h1>
+        <h1> score: </h1>
+
+    </div>
     <div class="jeu">
-        <div class="row">
-            <div class="col">
-                <img class="backImg" src="./public/img/back-img.jpg" alt="">
-                <img class="frontImg" src="" alt="">
+        <h2>Welcome!</h2>
+        <h3>Find The Pairs And Click On The End Button</h3>
+        <div class="chrono">
+            <div class="time">
+                <span id="m">
+
+                </span>
+                <span id="s">
+
+                </span>
+                <span id="ms">
+
+                </span>
             </div>
-            <div class="col">
-                <img class="backImg" src="./public/img/back-img.jpg" alt="">
-                <img class="frontImg" src="" alt="">
-            </div>
-            <div class="col">
-                <img class="backImg" src="./public/img/back-img.jpg" alt="">
-                <img class="frontImg" src="" alt="">
-            </div>
+            <button id="start" onclick="start()">
+                start
+            </button>
+            <button id="stop" onclick="stop()">
+                stop
+            </button>
+            <button id="reset" onclick="reset()">
+                reset
+            </button>
         </div>
         <div class="row">
             <div class="col">
@@ -42,8 +60,23 @@
                 <img class="frontImg" src="" alt="">
             </div>
         </div>
-</div>
+        <div class="row">
+            <div class="col">
+                <img class="backImg" src="./public/img/back-img.jpg" alt="">
+                <img class="frontImg" src="" alt="">
+            </div>
+            <div class="col">
+                <img class="backImg" src="./public/img/back-img.jpg" alt="">
+                <img class="frontImg" src="" alt="">
+            </div>
+            <div class="col">
+                <img class="backImg" src="./public/img/back-img.jpg" alt="">
+                <img class="frontImg" src="" alt="">
+            </div>
+        </div>
+    </div>
 
     <script src="./public/js/main.js"></script>
 </body>
+
 </html>

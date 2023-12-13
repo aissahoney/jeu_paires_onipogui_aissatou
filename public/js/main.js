@@ -1,19 +1,86 @@
-let divBg=document.querySelector(".blackBg")
+let divBg = document.querySelector(".blackBg")
 // let divTitle=document.querySelector(".title")
 
-let h3= document.querySelector("h3")
-let div=document.querySelector(".jeu")
+let h3 = document.querySelector("h3")
+let input = document.querySelector("input")
+let pseudo = input.value
+let divJeu = document.querySelector(".jeu")
 h3.addEventListener("click", function () {
-    divBg.style.display="none";
-    div.style.display="flex";
-    div.style.flexDirection= "column";
-    div.style.justifyContent="center";
-    div.style.alignItems= "center";
-    div.style.gap= "20px";
-    
+    divBg.style.display = "none";
+    divJeu.style.display = "flex";
+    divJeu.style.flexDirection = "column";
+    divJeu.style.justifyContent = "center";
+    divJeu.style.alignItems = "center";
+    divJeu.style.gap = "15px";
 })
+// ---------timer------------------
+let m = 0;
+let s = 0;
+let ms = 0;
+let intervalMiliseconde;
+let intervalSeconde;
+let intervalMinute;
+let intervalHeure;
+
+function setMiliseconde() {
+
+    if (ms == 999) {
+        ms = 0;
+    }
+    ms++
+    document.getElementById("ms").innerHTML = ms + " ms"
+}
+function setSeconde() {
+
+    if (s == 59) {
+        s = 0;
+    }
+    s++
+    document.getElementById("s").innerHTML = s + " s"
+}
+function setMinute() {
+
+    if (m == 59) {
+        m = 0;
+    }
+    m++
+
+    document.getElementById("m").innerHTML = m + " m"
+}
+
+function start() {
+    intervalMinute = setInterval(setMinute, 60000);
+    intervalSeconde = setInterval(setSeconde, 1000);
+    intervalMiliseconde = setInterval(setMiliseconde, 1);
+}
+let divScore = document.querySelector(".score")
+function stop() {
+    clearInterval(intervalMinute)
+    clearInterval(intervalSeconde)
+    clearInterval(intervalMiliseconde)
+    divJeu.style.display = "none";
+    divScore.style.display = "flex";
+    divScore.style.flexDirection = "column";
+    divScore.style.justifyContent = "center";
+    divScore.style.alignItems = "center";
+    divScore.style.height="250px"
+    divScore.style.width="500px"
+    divScore.style.border="5px solid red"
 
 
+}
+function reset() {
+    m = 0;
+    s = 0;
+    ms = 0;
+    document.getElementById("m").innerHTML = "0 m"
+    document.getElementById("ms").innerHTML = "0 ms"
+    document.getElementById("s").innerHTML = "0 s"
+}
+// --------------------------------
+
+
+// ------choix des cartes------------------
 let src1 = "./public/img/one.webp"
 let src2 = "./public/img/two.webp"
 let src3 = "./public/img/three.webp"
@@ -22,7 +89,7 @@ let src5 = "./public/img/five.webp"
 let src6 = "./public/img/six.webp"
 let src7 = "./public/img/seven.webp"
 let sevenCards = [src1, src2, src3, src4, src5, src6, src7]
-// ------choix des cartes------------------
+
 let cardsOfThree = []
 let i = 0
 while (i < 3) {
@@ -48,17 +115,25 @@ img.forEach(element => {
 });
 
 
-
-
 // ---------verifier les paires-----------------
 let pairs = [];
 function verify(pairs) {
-    if (pairs[0].src== pairs[1].src) {
-        pairs[0].style.opacity = "0.7"
-        pairs[1].style.opacity = "0.7"
-        pairs.slice(0,2)
+    if (pairs[0].src == pairs[1].src) {
+        pairs[0].style.opacity = "0.2"
+        // pairs[0].style.border = "1px solid red"
+        pairs[1].style.opacity = "0.2"
+        // pairs[1].style.border= "1px solid red"
+
         // return true
     }
+    else {
+        pairs[0].style.display = "none"
+        pairs[0].previousElementSibling.style.display = "block"
+        pairs[1].style.display = "none"
+        pairs[1].previousElementSibling.style.display = "block"
+    }
+    pairs.pop()
+    pairs.pop()
 }
 
 // ---------------remplace les paires trouvées-----------------
@@ -79,55 +154,14 @@ col.forEach(element => {
                 item.style.display = "block"
                 pairs.push(item)
                 console.log(pairs);
-                verify(pairs)
-        }
+                setTimeout(() => {
+                    verify(pairs)
+                }, 1200)
+            }
             if (item.classList.contains("backImg")) {
                 item.style.display = "none"
-
             }
         })
     })
 })
-// col.forEach(element => {
-//     element.addEventListener("click", function () {
-//         // console.log(element)
-//         let images = element.children
-        // console.log(images)
-// let arrayImages=Array.from(images)
-//         for (let l = 0; l < arrayImages.length; l++) {
-//            if (arrayImages[l].classList.contains("frontImg")) {
-//                arrayImages[l].style.display = "block"
-//                pairs.push(arrayImages[l])
-//            } else {
-            
-//            } arrayImages[l];
-            
-//         }
-        
-//         Array.from(images).forEach(item => {
-//             if (item.classList.contains("frontImg")) {
-//                 item.style.display = "block"
-//                 pairs.push(item.src)
-//                 // console.log(cards)
-//                       if (verify(pairs) == true) {
-//                         // item.style.opacity = "0.5"
-//                         // console.log(item.previousElementSibling)
-//                         // console.log(item)
-//                         element.style.opacity = "0"
-//                         console.log("tu as trouvé une pairs")
-//                     }
-                
-//                 // if (pairs.length == 2) {
-//                 //     console.log(pairs);
-              
-//                 // }
-
-//             }
-//             if (item.classList.contains("backImg")) {
-//                 item.style.display = "none"
-
-//             }
-//         })
-//     })
-// }) 
 
