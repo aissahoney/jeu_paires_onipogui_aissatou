@@ -1,3 +1,4 @@
+// --------------debut du jeu-----------------
 let divBg = document.querySelector(".blackBg")
 // let divTitle=document.querySelector(".title")
 
@@ -13,11 +14,10 @@ h3.addEventListener("click", function () {
     divJeu.style.justifyContent = "center";
     divJeu.style.alignItems = "center";
     divJeu.style.gap = "15px";
+    
 })
-// --------------------------------
-
-
 // ------choix des cartes------------------
+
 let src1 = "./public/img/one.jpg"
 let src2 = "./public/img/two.webp"
 let src3 = "./public/img/three.webp"
@@ -27,7 +27,6 @@ let src6 = "./public/img/six.jpg"
 let src7 = "./public/img/seven.png"
 let src8 = "./public/img/sparrow.jpg"
 let sevenCards = [src1, src2, src3, src4, src5, src6, src7, src8]
-
 let cardsOfThree = []
 let i = 0
 while (i < 3) {
@@ -74,7 +73,7 @@ function verify(pairs) {
     pairs.pop()
 }
 
-// -------------jeu------------------------
+// -------------conditions du jeu------------------------
 let col = document.querySelectorAll(".col");
 // console.log(col) 
 
@@ -143,12 +142,41 @@ function start() {
 
 
 
+// -----------stop button--------------
+let divScore = document.querySelector(".score")
+let h1score = document.querySelectorAll("h1")
+console.log(h1score[1])
+console.log(h1score[2])
+function stop() {
+    h1score[1].innerHTML = input.value
+    h1score[2].innerHTML = "SCORE : " + m + "m :" + s + "s :" + ms + "ms"
+    clearInterval(intervalMinute)
+    clearInterval(intervalSeconde)
+    clearInterval(intervalMiliseconde)
+    divJeu.style.display = "none";
+    divScore.style.display = "flex";
+    divScore.style.flexDirection = "column";
+    divScore.style.justifyContent = "center";
+    divScore.style.alignItems = "center";
+    divScore.style.height = "250px"
+    divScore.style.width = "500px"
+    divScore.style.gap = "20px"
+    divScore.style.margin = "200px"
+    divScore.style.border = "5px solid red"
+
+col.forEach(element => {
+            let images = element.children
+            console.log(images)
+            Array.from(images).forEach(item => {
+            item.style.opacity="1"  
+            })
+})
+}
 
 
-
-
-// --------reset button------------
-function reset() {
+// --------restart button------------
+// -----------retart de game----------------
+function restart() {
     setTimeout(() => {              
     m = 0;
     s = 0;
@@ -156,15 +184,13 @@ function reset() {
     document.getElementById("m").innerHTML = "0 m"
     document.getElementById("ms").innerHTML = "0 ms"
     document.getElementById("s").innerHTML = "0 s"
-    h2Jeu.innerText = `Welcome ${input.value} !`
+    // h2Jeu.innerText = `Welcome ${input.value} !`
     divScore.style.display = "none"
     divJeu.style.display = "flex";
     divJeu.style.flexDirection = "column";
     divJeu.style.justifyContent = "center";
     divJeu.style.alignItems = "center";
     divJeu.style.gap = "15px";
-
-
 
     let src1 = "./public/img/one.jpg"
     let src2 = "./public/img/two.webp"
@@ -204,38 +230,3 @@ function reset() {
     });
 }, 1000)
 }
-
-
-
-
-
-
-
-
-let divScore = document.querySelector(".score")
-let h1score = document.querySelectorAll("h1")
-console.log(h1score[1])
-console.log(h1score[2])
-function stop() {
-    h1score[1].innerHTML = input.value
-    h1score[2].innerHTML = "SCORE : " + m + "m :" + s + "s :" + ms + "ms"
-    clearInterval(intervalMinute)
-    clearInterval(intervalSeconde)
-    clearInterval(intervalMiliseconde)
-    divJeu.style.display = "none";
-    divScore.style.display = "flex";
-    divScore.style.flexDirection = "column";
-    divScore.style.justifyContent = "center";
-    divScore.style.alignItems = "center";
-    divScore.style.height = "250px"
-    divScore.style.width = "500px"
-    divScore.style.border = "5px solid red"
-col.forEach(element => {
-            let images = element.children
-            console.log(images)
-            Array.from(images).forEach(item => {
-            item.style.opacity="1"  
-            })
-})
-}
-

@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./public/css/style.css">
-    <title>memory</title>
+    <title>Find Pairs</title>
 </head>
 
 <body>
@@ -22,14 +22,14 @@
     <div class="score">
         <h1> </h1>
         <h1> </h1>
-        <button class=btn id="reset" onclick="reset()">
-            RESET
+        <button class=btn id="reset" onclick="restart()">
+            RESTART
         </button>
 
     </div>
     <div class="jeu">
         <h2 class="welcome"></h2>
-        <h3>Find The Pairs And Click On The End Button</h3>
+        <h3>Click On The Start Button To begin the Game and Click the End Button</h3>
         <div class="chrono">
             <div class="time">
                 <span id="m">
@@ -42,13 +42,16 @@
 
                 </span>
             </div>
-            <button class=btn id="start" onclick="start()">
-                Start
-            </button>
-            <button class=btn id="stop" onclick="stop()">
-                End
-            </button>
+            <div>
+                <button class=btn id="start" onclick="start()">
+                    START
+                </button>
+                <button class=btn id="stop" onclick="stop()">
+                    END
+                </button>
+            </div>
             
+
         </div>
         <div class="row">
             <div class="col">

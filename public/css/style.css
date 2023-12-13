@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     height: 100vh;
     font-family: 'Nova Square', sans-serif;
+    cursor: url("../img/crowCursor.png"), auto;
 }
 
 .blackBg {
