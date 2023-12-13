@@ -3,11 +3,10 @@ let divBg = document.querySelector(".blackBg")
 
 let h3 = document.querySelector("h3")
 let input = document.querySelector("input")
-let h2Jeu=document.querySelector(".welcome")
+let h2Jeu = document.querySelector(".welcome")
 let divJeu = document.querySelector(".jeu")
 h3.addEventListener("click", function () {
-    let pseudo=input.value
-    h2Jeu.innerText=`Welcome ${pseudo} !`
+    h2Jeu.innerText = `Welcome ${input.value} !`
     divBg.style.display = "none";
     divJeu.style.display = "flex";
     divJeu.style.flexDirection = "column";
@@ -15,84 +14,6 @@ h3.addEventListener("click", function () {
     divJeu.style.alignItems = "center";
     divJeu.style.gap = "15px";
 })
-// ---------timer------------------
-let m = 0;
-let s = 0;
-let ms = 0;
-let intervalMiliseconde;
-let intervalSeconde;
-let intervalMinute;
-let intervalHeure;
-
-function setMiliseconde() {
-
-    if (ms == 999) {
-        ms = 0;
-    }
-    ms++
-    document.getElementById("ms").innerHTML = ms + " ms"
-}
-function setSeconde() {
-
-    if (s == 59) {
-        s = 0;
-    }
-    s++
-    document.getElementById("s").innerHTML = s + " s"
-}
-function setMinute() {
-
-    if (m == 59) {
-        m = 0;
-    }
-    m++
-
-    document.getElementById("m").innerHTML = m + " m"
-}
-
-function start() {
-    intervalMinute = setInterval(setMinute, 60000);
-    intervalSeconde = setInterval(setSeconde, 1000);
-    intervalMiliseconde = setInterval(setMiliseconde, 1);
-}
-function reset() {
-    m = 0;
-    s = 0;
-    ms = 0;
-    document.getElementById("m").innerHTML = "0 m"
-    document.getElementById("ms").innerHTML = "0 ms"
-    document.getElementById("s").innerHTML = "0 s"
-}
-let divScore = document.querySelector(".score")
-let h1score = document.querySelectorAll("h1")
-console.log(h1score[1])
-console.log(h1score[2])
-function stop() {
-    h1score[1].innerHTML= input.value
-    h1score[2].innerHTML= "SCORE : " +m + " m" +s +" s" + ms + " ms"
-    clearInterval(intervalMinute)
-    clearInterval(intervalSeconde)
-    clearInterval(intervalMiliseconde)
-    divJeu.style.display = "none";
-    divScore.style.display = "flex";
-    divScore.style.flexDirection = "column";
-    divScore.style.justifyContent = "center";
-    divScore.style.alignItems = "center";
-    divScore.style.height="250px"
-    divScore.style.width="500px"
-    divScore.style.border="5px solid red"
-     resizeTo()
-
-
-}
-// function reset() {
-//     m = 0;
-//     s = 0;
-//     ms = 0;
-//     document.getElementById("m").innerHTML = "0 m"
-//     document.getElementById("ms").innerHTML = "0 ms"
-//     document.getElementById("s").innerHTML = "0 s"
-// }
 // --------------------------------
 
 
@@ -105,7 +26,7 @@ let src5 = "./public/img/five.png"
 let src6 = "./public/img/six.jpg"
 let src7 = "./public/img/seven.png"
 let src8 = "./public/img/sparrow.jpg"
-let sevenCards = [src1, src2, src3, src4, src5, src6, src7,src8]
+let sevenCards = [src1, src2, src3, src4, src5, src6, src7, src8]
 
 let cardsOfThree = []
 let i = 0
@@ -153,10 +74,7 @@ function verify(pairs) {
     pairs.pop()
 }
 
-// ---------------remplace les paires trouvées-----------------
-// let replacePair=document.createElement("img")
-// img.className="red"
-
+// -------------jeu------------------------
 let col = document.querySelectorAll(".col");
 // console.log(col) 
 
@@ -170,7 +88,7 @@ col.forEach(element => {
             if (item.classList.contains("frontImg")) {
                 item.style.display = "block"
                 pairs.push(item)
-                console.log(pairs);
+                // console.log(pairs);
                 setTimeout(() => {
                     verify(pairs)
                 }, 1000)
@@ -181,4 +99,168 @@ col.forEach(element => {
         })
     })
 })
+
+// ---------timer------------------
+let m = 0;
+let s = 0;
+let ms = 0;
+let intervalMiliseconde;
+let intervalSeconde;
+let intervalMinute;
+let intervalHeure;
+
+function setMiliseconde() {
+
+    if (ms == 999) {
+        ms = 0;
+    }
+    ms++
+    document.getElementById("ms").innerHTML = ms + " ms"
+}
+function setSeconde() {
+
+    if (s == 59) {
+        s = 0;
+    }
+    s++
+    document.getElementById("s").innerHTML = s + " s"
+}
+function setMinute() {
+
+    if (m == 59) {
+        m = 0;
+    }
+    m++
+
+    document.getElementById("m").innerHTML = m + " m"
+}
+// -------Start button------------
+function start() {
+    intervalMinute = setInterval(setMinute, 60000);
+    intervalSeconde = setInterval(setSeconde, 1000);
+    intervalMiliseconde = setInterval(setMiliseconde, 1);
+}
+
+
+
+
+
+
+
+// --------reset button------------
+function reset() {
+    setTimeout(() => {              
+    m = 0;
+    s = 0;
+    ms = 0;
+    document.getElementById("m").innerHTML = "0 m"
+    document.getElementById("ms").innerHTML = "0 ms"
+    document.getElementById("s").innerHTML = "0 s"
+    h2Jeu.innerText = `Welcome ${input.value} !`
+    divScore.style.display = "none"
+    divJeu.style.display = "flex";
+    divJeu.style.flexDirection = "column";
+    divJeu.style.justifyContent = "center";
+    divJeu.style.alignItems = "center";
+    divJeu.style.gap = "15px";
+
+
+
+    let src1 = "./public/img/one.jpg"
+    let src2 = "./public/img/two.webp"
+    let src3 = "./public/img/three.webp"
+    let src4 = "./public/img/four.jpg"
+    let src5 = "./public/img/five.png"
+    let src6 = "./public/img/six.jpg"
+    let src7 = "./public/img/seven.png"
+    let src8 = "./public/img/sparrow.jpg"
+    let sevenCards = [src1, src2, src3, src4, src5, src6, src7, src8]
+
+    let cardsOfThree = []
+    console.log(sevenCards)
+    let i = 0
+    while (i < 3) {
+        let indexElement = Math.floor(Math.random() * sevenCards.length)
+        let y = sevenCards.splice(indexElement, 1)[0]
+        sevenCards.pop(y)
+        cardsOfThree.push(y)
+        i++
+    }
+    let cards = cardsOfThree.concat(cardsOfThree) //pour avoir chaque element en double dans tableau
+//    console.log(cards);    //test
+
+    // ----------repartition des cases--------------
+    let img = document.querySelectorAll("img")
+    // console.log(img)
+    img.forEach(element => {
+        if (element.classList.contains("frontImg")) {
+            element.src = cards.splice(Math.floor(Math.random() * cards.length), 1);
+            // console.log(cards)
+            element.style.display="none"
+            element.style.opacity="none"
+        }
+        if (element.classList.contains("backImg")){
+            element.style.display="block"
+            element.style.opacity="none"
+        }
+    });
+
+    col.forEach(element => {
+        element.addEventListener("click", function () {
+            // console.log(element)
+            let images = element.children
+            // console.log(images)
+            Array.from(images).forEach(item => {
+                if (item.classList.contains("frontImg")) {
+                    item.style.display = "block"
+                    pairs.push(item)
+                    console.log(pairs);
+                    setTimeout(() => {
+                        verify(pairs)
+                    }, 1000)
+                }
+                if (item.classList.contains("backImg")) {
+                    item.style.display = "none"
+                }
+            })
+        })
+    })
+}, 1000)
+}
+
+
+
+
+
+
+
+
+let divScore = document.querySelector(".score")
+let h1score = document.querySelectorAll("h1")
+console.log(h1score[1])
+console.log(h1score[2])
+function stop() {
+    h1score[1].innerHTML = input.value
+    h1score[2].innerHTML = "SCORE : " + m + "m :" + s + "s :" + ms + "ms"
+    clearInterval(intervalMinute)
+    clearInterval(intervalSeconde)
+    clearInterval(intervalMiliseconde)
+    divJeu.style.display = "none";
+    divScore.style.display = "flex";
+    divScore.style.flexDirection = "column";
+    divScore.style.justifyContent = "center";
+    divScore.style.alignItems = "center";
+    divScore.style.height = "250px"
+    divScore.style.width = "500px"
+    divScore.style.border = "5px solid red"
+// col.forEach(element => {
+//             let images = element.children
+//             console.log(images)
+//             Array.from(images).forEach(item => {
+//                 if (item.classList.contains("frontImg")) {
+//                     item.src=""
+//                 }   
+//             })
+// })
+}
 
