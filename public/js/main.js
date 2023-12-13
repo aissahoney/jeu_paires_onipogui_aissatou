@@ -147,7 +147,7 @@ console.log(h1score[1])
 console.log(h1score[2])
 function stop() {
     h1score[1].innerHTML = input.value
-    h1score[2].innerHTML = "SCORE : " + m + "m :" + s + "s :" + ms + "ms"
+    h1score[2].innerHTML = "SCORE :    " + m + " m : " + s + " s : " + ms + " ms"
     clearInterval(intervalMinute)
     clearInterval(intervalSeconde)
     clearInterval(intervalMiliseconde)

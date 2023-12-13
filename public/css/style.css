@@ -29,9 +29,14 @@ body {
     align-items: center;
 }
 
+.chrono{
+    display: flex;
+    flex-direction: column;
+}
 .btn {
     width: 5rem;
     height: 2rem;
+    font-family: 'Gafata', sans-serif;
     font-weight: bolder;
     --clr: rgb(255, 17, 57);
     --outline: 2px solid rgb(255, 17, 57);
