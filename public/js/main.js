@@ -197,34 +197,11 @@ function reset() {
             element.src = cards.splice(Math.floor(Math.random() * cards.length), 1);
             // console.log(cards)
             element.style.display="none"
-            element.style.opacity="none"
         }
         if (element.classList.contains("backImg")){
             element.style.display="block"
-            element.style.opacity="none"
         }
     });
-
-    col.forEach(element => {
-        element.addEventListener("click", function () {
-            // console.log(element)
-            let images = element.children
-            // console.log(images)
-            Array.from(images).forEach(item => {
-                if (item.classList.contains("frontImg")) {
-                    item.style.display = "block"
-                    pairs.push(item)
-                    console.log(pairs);
-                    setTimeout(() => {
-                        verify(pairs)
-                    }, 1000)
-                }
-                if (item.classList.contains("backImg")) {
-                    item.style.display = "none"
-                }
-            })
-        })
-    })
 }, 1000)
 }
 
@@ -253,14 +230,12 @@ function stop() {
     divScore.style.height = "250px"
     divScore.style.width = "500px"
     divScore.style.border = "5px solid red"
-// col.forEach(element => {
-//             let images = element.children
-//             console.log(images)
-//             Array.from(images).forEach(item => {
-//                 if (item.classList.contains("frontImg")) {
-//                     item.src=""
-//                 }   
-//             })
-// })
+col.forEach(element => {
+            let images = element.children
+            console.log(images)
+            Array.from(images).forEach(item => {
+            item.style.opacity="1"  
+            })
+})
 }
 
