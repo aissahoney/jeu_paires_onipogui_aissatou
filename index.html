@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./public/css/style.css">
     <title>memory</title>
 </head>
@@ -12,17 +15,17 @@
     <div class="blackBg">
         <div class="title">
             <h1>UMBRELLA&nbsp&nbspACADEMY</h1>
-            <input type="text" value="">
+            <input type="text">
             <h3>CLICK HERE TO BEGIN</h3>
         </div>
     </div>
     <div class="score">
-        <h1> pseudo:</h1>
-        <h1> score: </h1>
+        <h1> </h1>
+        <h1> </h1>
 
     </div>
     <div class="jeu">
-        <h2>Welcome!</h2>
+        <h2 class="welcome"></h2>
         <h3>Find The Pairs And Click On The End Button</h3>
         <div class="chrono">
             <div class="time">
@@ -36,14 +39,14 @@
 
                 </span>
             </div>
-            <button id="start" onclick="start()">
-                start
+            <button class=btn id="start" onclick="start()">
+                Start
             </button>
-            <button id="stop" onclick="stop()">
-                stop
+            <button class=btn id="stop" onclick="stop()">
+                End
             </button>
-            <button id="reset" onclick="reset()">
-                reset
+            <button class=btn id="reset" onclick="reset()">
+                Reset
             </button>
         </div>
         <div class="row">

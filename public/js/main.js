@@ -3,9 +3,11 @@ let divBg = document.querySelector(".blackBg")
 
 let h3 = document.querySelector("h3")
 let input = document.querySelector("input")
-let pseudo = input.value
+let h2Jeu=document.querySelector(".welcome")
 let divJeu = document.querySelector(".jeu")
 h3.addEventListener("click", function () {
+    let pseudo=input.value
+    h2Jeu.innerText=`Welcome ${pseudo} !`
     divBg.style.display = "none";
     divJeu.style.display = "flex";
     divJeu.style.flexDirection = "column";
@@ -53,8 +55,21 @@ function start() {
     intervalSeconde = setInterval(setSeconde, 1000);
     intervalMiliseconde = setInterval(setMiliseconde, 1);
 }
+function reset() {
+    m = 0;
+    s = 0;
+    ms = 0;
+    document.getElementById("m").innerHTML = "0 m"
+    document.getElementById("ms").innerHTML = "0 ms"
+    document.getElementById("s").innerHTML = "0 s"
+}
 let divScore = document.querySelector(".score")
+let h1score = document.querySelectorAll("h1")
+console.log(h1score[1])
+console.log(h1score[2])
 function stop() {
+    h1score[1].innerHTML= input.value
+    h1score[2].innerHTML= "SCORE : " +m + " m" +s +" s" + ms + " ms"
     clearInterval(intervalMinute)
     clearInterval(intervalSeconde)
     clearInterval(intervalMiliseconde)
@@ -66,29 +81,31 @@ function stop() {
     divScore.style.height="250px"
     divScore.style.width="500px"
     divScore.style.border="5px solid red"
+     resizeTo()
 
 
 }
-function reset() {
-    m = 0;
-    s = 0;
-    ms = 0;
-    document.getElementById("m").innerHTML = "0 m"
-    document.getElementById("ms").innerHTML = "0 ms"
-    document.getElementById("s").innerHTML = "0 s"
-}
+// function reset() {
+//     m = 0;
+//     s = 0;
+//     ms = 0;
+//     document.getElementById("m").innerHTML = "0 m"
+//     document.getElementById("ms").innerHTML = "0 ms"
+//     document.getElementById("s").innerHTML = "0 s"
+// }
 // --------------------------------
 
 
 // ------choix des cartes------------------
-let src1 = "./public/img/one.webp"
+let src1 = "./public/img/one.jpg"
 let src2 = "./public/img/two.webp"
 let src3 = "./public/img/three.webp"
-let src4 = "./public/img/four.webp"
-let src5 = "./public/img/five.webp"
-let src6 = "./public/img/six.webp"
-let src7 = "./public/img/seven.webp"
-let sevenCards = [src1, src2, src3, src4, src5, src6, src7]
+let src4 = "./public/img/four.jpg"
+let src5 = "./public/img/five.png"
+let src6 = "./public/img/six.jpg"
+let src7 = "./public/img/seven.png"
+let src8 = "./public/img/sparrow.jpg"
+let sevenCards = [src1, src2, src3, src4, src5, src6, src7,src8]
 
 let cardsOfThree = []
 let i = 0
@@ -156,7 +173,7 @@ col.forEach(element => {
                 console.log(pairs);
                 setTimeout(() => {
                     verify(pairs)
-                }, 1200)
+                }, 1000)
             }
             if (item.classList.contains("backImg")) {
                 item.style.display = "none"

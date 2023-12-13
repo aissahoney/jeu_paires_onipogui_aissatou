@@ -8,6 +8,7 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    font-family: 'Nova Square', sans-serif;
 }
 
 .blackBg {
@@ -25,9 +26,32 @@ body {
     flex-direction: column;
     align-items: center;
 }
-.score{
+
+.btn {
+    width: 5rem;
+    height: 2rem;
+    font-weight: bolder;
+    --clr: rgb(255, 17, 57);
+    --outline: 2px solid rgb(255, 17, 57);
+    color: var(--clr);
+    outline: var(--outline);
+    border: var(--outline);
+    outline-offset: -2px;
+    transition: outline-width 200ms ease, outline-offset 200ms ease;
+}
+
+.btn:hover,
+.btn:focus {
+    outline: var(--outline);
+    outline-width: 8px;
+    outline-offset: -8px;
+    /* // because of normalize */
+}
+
+.score {
     display: none;
 }
+
 .jeu {
     display: none;
     /* flex-direction: column;
@@ -44,8 +68,8 @@ body {
 
 .col {
     border: 2px solid rgb(255, 0, 0);
-    height: 350px;
-    width: 250px;
+    height: 300px;
+    width: 220px;
     gap: 20px;
     position: relative;
     transform-style: preserve-3d;
@@ -60,20 +84,20 @@ body {
 
 
 .col .backImg {
-    
-    height: 350px;
-    width: 250px;
+
+    height: 300px;
+    width: 220px;
     display: block;
 }
 
 .col .frontImg {
-   
-    height: 350px;
-    width: 250px;
+
+    height: 300px;
+    width: 220px;
     display: none;
 }
 
-.score{
+.score {
     display: none;
 }
 
