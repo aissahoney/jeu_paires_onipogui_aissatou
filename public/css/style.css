@@ -8,7 +8,8 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    font-family: 'Nova Square', sans-serif;
+    font-family: 'Indie Flower', cursive;
+    /* font-family: 'Nova Square', sans-serif; */
     cursor: url("../img/crowCursor.png"), auto;
 }
 

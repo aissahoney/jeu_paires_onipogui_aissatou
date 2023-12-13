@@ -1,4 +1,5 @@
 // --------------debut du jeu-----------------
+let body= document.querySelector("body")
 let divBg = document.querySelector(".blackBg")
 // let divTitle=document.querySelector(".title")
 
@@ -9,6 +10,7 @@ let divJeu = document.querySelector(".jeu")
 h3.addEventListener("click", function () {
     h2Jeu.innerText = `Welcome ${input.value} !`
     divBg.style.display = "none";
+    body.style.background='linear-gradient(rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.44))'
     divJeu.style.display = "flex";
     divJeu.style.flexDirection = "column";
     divJeu.style.justifyContent = "center";
@@ -57,11 +59,7 @@ let pairs = [];
 function verify(pairs) {
     if (pairs[0].src == pairs[1].src) {
         pairs[0].style.opacity = "0.2"
-        // pairs[0].style.border = "1px solid red"
         pairs[1].style.opacity = "0.2"
-        // pairs[1].style.border= "1px solid red"
-
-        // return true
     }
     else {
         pairs[0].style.display = "none"
@@ -75,7 +73,7 @@ function verify(pairs) {
 
 // -------------conditions du jeu------------------------
 let col = document.querySelectorAll(".col");
-// console.log(col) 
+// console.log(col)     
 
 
 col.forEach(element => {
@@ -153,6 +151,8 @@ function stop() {
     clearInterval(intervalMinute)
     clearInterval(intervalSeconde)
     clearInterval(intervalMiliseconde)
+    body.style.background='linear-gradient(rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.44))'
+    body.style.height="100vw"
     divJeu.style.display = "none";
     divScore.style.display = "flex";
     divScore.style.flexDirection = "column";
